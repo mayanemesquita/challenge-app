@@ -1,0 +1,3 @@
+INSERT INTO supplier (id, `name`, created_at, update_at) VALUES ('ee486e92-c180-4790-943e-66fa0ad44782', '3M do Brasil Ltda', '2024-01-03 08:57:13', null);
+INSERT INTO supplier (id, `name`, created_at, update_at) VALUES ('e1a608d1-1222-4dc0-b565-99e5d3f76b26', '7 Bond Solution', '2024-01-03 08:57:56', null);
+INSERT INTO supplier (id, `name`, created_at, update_at) VALUES ('f67eed89-40ff-422d-9c9d-8a79f9ddb7c7', 'Bonna Vitta', '2024-01-03 09:02:16', null);

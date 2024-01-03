@@ -6,10 +6,10 @@ import javax.persistence.*;
 import java.util.Date;
 @Data
 @Entity
+@Table(name = "supplier")
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String name;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfCreation;

@@ -5,9 +5,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://35.199.88.244:3306/cayena?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/cayena?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: ',l)v"8qup|A).92v'
+    password: 'dev*123'
   jpa:
     open-in-view: true
     hibernate:
@@ -16,9 +16,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   flyway:
-    url: jdbc:mysql://35.199.88.244:3306
+    url: jdbc:mysql://localhost:3306
     user: root
-    password: ',l)v"8qup|A).92v'
+    password: 'dev*123'
     default-schema: cayena
     validate-on-migrate: true
     locations: classpath:db/migration
