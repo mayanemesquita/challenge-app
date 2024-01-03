@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Entity
@@ -13,6 +14,12 @@ public class Product {
     private String id;
     private String name;
     private Integer quantity;
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfCreation;
+    @Column(name = "update_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfLastUpdate;
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
     @ManyToOne

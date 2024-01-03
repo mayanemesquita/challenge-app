@@ -1,3 +1,4 @@
 INSERT INTO supplier (id, `name`, created_at, update_at) VALUES ('ee486e92-c180-4790-943e-66fa0ad44782', '3M do Brasil Ltda', '2024-01-03 08:57:13', null);
 INSERT INTO supplier (id, `name`, created_at, update_at) VALUES ('e1a608d1-1222-4dc0-b565-99e5d3f76b26', '7 Bond Solution', '2024-01-03 08:57:56', null);
 INSERT INTO supplier (id, `name`, created_at, update_at) VALUES ('f67eed89-40ff-422d-9c9d-8a79f9ddb7c7', 'Bonna Vitta', '2024-01-03 09:02:16', null);
+INSERT INTO product (id, created_at, update_at, quantity, `name`, unit_price, supplier_id) VALUES ('cdf98db0-77c4-4045-85a5-7f5b67cdfbb1', '2024-01-03 15:35:22', null, 17, 'Bolacha', 257, 'e1a608d1-1222-4dc0-b565-99e5d3f76b26')
