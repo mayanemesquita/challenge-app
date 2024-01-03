@@ -1,0 +1,7 @@
+
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ùçí¾8¸›‰üÌ1
+b	java:S112*"FDefine and throw a dedicated exception instead of using a generic one.(Û–â¸8¹›‰üÌ1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8Š”ÏüÌ1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Š”ÏüÌ1
