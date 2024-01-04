@@ -1,7 +1,8 @@
 package br.com.cayena.challenge.app.services;
 
+import br.com.cayena.challenge.ChallengeException;
 import br.com.cayena.challenge.app.dto.ProductDTO;
-import br.com.cayena.challenge.app.dto.ProductEnum;
+import br.com.cayena.challenge.app.dto.QuantityControlDTO;
 import br.com.cayena.challenge.app.mappers.ProductMapper;
 import br.com.cayena.challenge.integrations.db.entities.Product;
 import br.com.cayena.challenge.integrations.db.repositories.ProductRepository;
@@ -32,7 +33,7 @@ public class ProducServiceImpl implements ProductService {
         Optional<Product> optionalProduct = productRepository.findById(id);
 
         if (optionalProduct.isEmpty()) {
-            throw new RuntimeException("Produto não existe");
+            throw new ChallengeException("Produto não existe");
         }
         return Mappers.getMapper(ProductMapper.class).fromEntity(optionalProduct.get());
     }
@@ -41,12 +42,22 @@ public class ProducServiceImpl implements ProductService {
     public ProductDTO save(ProductDTO productDTO) {
 
         Product entity = Mappers.getMapper(ProductMapper.class).fromDTO(productDTO);
-
         Product after = productRepository.save(entity);
         if (after.getId() == null) {
-            throw new RuntimeException("Erro ao salvar o produto");
+            throw new ChallengeException("Erro ao salvar o produto");
         }
 
+        return Mappers.getMapper(ProductMapper.class).fromEntity(after);
+    }
+
+    @Override
+    public ProductDTO update(ProductDTO productDTO) {
+
+        Product entity = Mappers.getMapper(ProductMapper.class).toUpdate(productDTO);
+        Product after = productRepository.save(entity);
+        if (after.getId() == null) {
+            throw new ChallengeException("Erro ao salvar o produto");
+        }
         return Mappers.getMapper(ProductMapper.class).fromEntity(after);
     }
 
@@ -57,20 +68,20 @@ public class ProducServiceImpl implements ProductService {
 
 
     @Override
-    public ProductDTO quantityStock(String productId, ProductEnum productEnum, Integer quantidade) {
-        ProductDTO entity = getById(productId);
+    public ProductDTO quantityStock(QuantityControlDTO quantityControlDTO) {
+        ProductDTO entity = getById(quantityControlDTO.getProductId());
 
-        if (productEnum.name().equals("SALE")) {
+        if (quantityControlDTO.getProductEnum().name().equals("SALE")) {
 
-            int total = entity.getQuantity() - quantidade;
+            int total = entity.getQuantity() - quantityControlDTO.getQuantity();
             entity.setQuantity(total);
-            save(entity);
+            update(entity);
         }
-        if (productEnum.name().equals("BUY")) {
+        if (quantityControlDTO.getProductEnum().name().equals("BUY")) {
 
-            int total = entity.getQuantity() + quantidade;
+            int total = entity.getQuantity() + quantityControlDTO.getQuantity();
             entity.setQuantity(total);
-            save(entity);
+            update(entity);
         }
         return entity;
     }

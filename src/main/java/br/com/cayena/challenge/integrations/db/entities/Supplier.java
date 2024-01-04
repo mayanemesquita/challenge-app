@@ -2,8 +2,11 @@ package br.com.cayena.challenge.integrations.db.entities;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "supplier")
@@ -12,9 +15,7 @@ public class Supplier {
     private String id;
     private String name;
     @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOfCreation;
+    private LocalDateTime dateOfCreation;
     @Column(name = "update_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOfLastUpdate;
+    private LocalDateTime dateOfLastUpdate;
 }

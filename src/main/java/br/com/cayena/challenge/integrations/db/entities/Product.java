@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -15,11 +15,9 @@ public class Product {
     private String name;
     private Integer quantity;
     @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOfCreation;
+    private LocalDateTime dateOfCreation;
     @Column(name = "update_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOfLastUpdate;
+    private LocalDateTime dateOfLastUpdate;
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
     @ManyToOne
