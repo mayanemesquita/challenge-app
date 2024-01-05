@@ -6,7 +6,7 @@ create table supplier
     update_at  datetime
 );
 
-create table cayena.product
+create table product
 (
     id          varchar(36)  not null
         primary key,

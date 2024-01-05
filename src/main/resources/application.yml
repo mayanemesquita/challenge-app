@@ -4,22 +4,23 @@ server:
 ---
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cayena?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: root
-    password: 'dev*123'
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-3-232-218-211.compute-1.amazonaws.com:5432/dfoqsbv320u8dp
+    username: qtkaxslqqxqlre
+    password: '02b525c479f3b3b07006d0cf2ff3c82754d0eafa421e054a3beef2a78b675a26'
   jpa:
     open-in-view: true
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   flyway:
-    url: jdbc:mysql://localhost:3306
-    user: root
-    password: 'dev*123'
-    default-schema: cayena
+    url: jdbc:postgresql://ec2-3-232-218-211.compute-1.amazonaws.com:5432/dfoqsbv320u8dp
+    user: qtkaxslqqxqlre
+    password: '02b525c479f3b3b07006d0cf2ff3c82754d0eafa421e054a3beef2a78b675a26'
+    default-schema: dfoqsbv320u8dp
     validate-on-migrate: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+    enabled: true
